@@ -1,0 +1,22 @@
+version: '3'
+services:
+
+  university-registration:
+    build: ../.
+    ports:
+      - 9000:9000
+    depends_on:
+      - registration-postgres
+
+  registration-postgres:
+    image: postgres:13.1
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=registration
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+
+networks:
+  default:
+    external:
+      name: university-network

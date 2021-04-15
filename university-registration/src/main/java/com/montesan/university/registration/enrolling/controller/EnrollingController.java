@@ -1,4 +1,4 @@
-package com.montesan.university.registration.controller;
+package com.montesan.university.registration.enrolling.controller;
 
 import com.montesan.university.registration.enrolling.dto.EnrollingDto;
 import com.montesan.university.registration.enrolling.service.EnrollingService;
