@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class EnrollingProduce {
+public class EnrollingProducer {
 
     @Value("${topic.name.producer}")
     private String topic;
@@ -18,7 +18,7 @@ public class EnrollingProduce {
     private final KafkaTemplate<String, EnrollingDto> kafkaTemplate;
 
     public void send(EnrollingDto studentDto) {
-        log.info("Message: {}", studentDto);
+//        log.info("Message: {}", studentDto);
         kafkaTemplate.send(topic, studentDto);
     }
 }
