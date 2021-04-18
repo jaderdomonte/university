@@ -1,0 +1,38 @@
+server:
+  port: 9000
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: LISTENER_EXTERNAL://localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      bootstrap-servers: LISTENER_EXTERNAL://localhost:9092
+      group-id: group_id
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: com.montesan.university.registration.*
+  datasource:
+    url: jdbc:postgresql://localhost:5433/registration
+    username: postgres
+    password: registration
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show-sql: true
+
+topic:
+  name:
+    producer: enrolling
+
+auto:
+  create:
+    topics:
+      enable: true
