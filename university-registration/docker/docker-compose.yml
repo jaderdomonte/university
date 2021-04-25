@@ -1,14 +1,19 @@
 version: '3'
 services:
   registration:
-    build: ../.
+    build: 
+      context: ../.
+      dockerfile: Dockerfile
+    image: jaderdomonte/registration
+    container_name: registration
     ports:
-      - 9001:9000
+      - 9000:8080
     depends_on:
       - postgres
 
   postgres:
     image: postgres:13.1
+    container_name: postgres
     environment:
       - POSTGRES_PASSWORD=registration
       - POSTGRES_DB=registration
