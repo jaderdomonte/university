@@ -3,9 +3,10 @@ services:
   registration:
     build: 
       context: ../.
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prd
     image: jaderdomonte/registration
     container_name: registration
+    entrypoint: dockerize -wait tcp://postgres:5432 java -cp app:app/lib/* com.montesan.university.registration.UniversityRegistrationApplication
     ports:
       - 9000:8080
     depends_on:
