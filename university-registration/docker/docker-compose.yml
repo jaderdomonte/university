@@ -21,7 +21,7 @@ services:
     volumes:
       - ./postgres/init:/docker-entrypoint-initdb.d
     ports:
-      - 5433:5432
+      - 5432:5432
 
 networks:
   default:
