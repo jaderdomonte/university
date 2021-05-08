@@ -28,7 +28,7 @@ spring:
 
 topic:
   name:
-    producer: enrolling
+    producer: register
 
 auto:
   create:

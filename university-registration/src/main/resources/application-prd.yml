@@ -16,7 +16,7 @@ spring:
             trusted:
               packages: com.montesan.university.registration.*
   datasource:
-    url: jdbc:postgresql://postgres:5432/registration
+    url: jdbc:postgresql://db-registration:5432/registration
     username: postgres
     password: registration
     driver-class-name: org.postgresql.Driver
@@ -28,7 +28,7 @@ spring:
 
 topic:
   name:
-    producer: enrolling
+    producer: register
 
 auto:
   create:

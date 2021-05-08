@@ -3,10 +3,10 @@ services:
   registration:
     build: 
       context: ../.
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.prd
     image: jaderdomonte/registration
     container_name: registration
-    entrypoint: dockerize -wait tcp://db-registration:5432 java -jar -Dspring.profiles.active=prd /app.jar
+    entrypoint: dockerize -wait tcp://db-registration:5432 java -cp app:app/lib/* com.montesan.university.registration.UniversityRegistrationApplication
     ports:
       - 8000:8080
     depends_on:
@@ -14,7 +14,7 @@ services:
 
   db-registration:
     image: postgres:13.1
-    container_name: db-registration
+    #container_name: db-registration
     environment:
       - POSTGRES_PASSWORD=registration
       - POSTGRES_DB=registration
