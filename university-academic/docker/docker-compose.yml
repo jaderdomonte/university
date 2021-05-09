@@ -1,0 +1,29 @@
+version: '3'
+services:
+  academic:
+    build: 
+      context: ../.
+      dockerfile: Dockerfile
+    image: jaderdomonte/academic
+    container_name: academic
+    entrypoint: dockerize -wait tcp://db-academic:5432 java -jar -Dspring.profiles.active=prd /app.jar
+    ports:
+      - 8000:8080
+    depends_on:
+      - db-academic
+
+  db-academic:
+    image: postgres:13.1
+    container_name: db-academic
+    environment:
+      - POSTGRES_PASSWORD=academic
+      - POSTGRES_DB=academic
+    volumes:
+      - ./postgres/init:/docker-entrypoint-initdb.d
+    ports:
+      - 5432:5432
+
+networks:
+  default:
+    external:
+      name: university-network
