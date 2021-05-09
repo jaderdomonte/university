@@ -1,11 +1,10 @@
 package com.montesan.university.academic.course.controller;
 
+import com.montesan.university.academic.course.dto.CourseDto;
 import com.montesan.university.academic.course.service.CourseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/course")
@@ -13,6 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class CourseController {
 
     private final CourseService service;
+
+    @PostMapping
+    public ResponseEntity<?> createCourse(@RequestBody CourseDto courseDto){
+        return ResponseEntity.ok(service.save(courseDto));
+    }
 
     @GetMapping
     public ResponseEntity<?> getCourses(){

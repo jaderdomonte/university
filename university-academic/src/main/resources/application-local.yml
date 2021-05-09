@@ -17,7 +17,9 @@ spring:
 
 topic:
   name:
-    producer: academic
+    producer:
+      subject: subject
+      course: course
 
 auto:
   create:
