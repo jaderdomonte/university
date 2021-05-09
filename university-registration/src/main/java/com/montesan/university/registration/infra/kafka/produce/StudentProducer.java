@@ -1,4 +1,4 @@
-package com.montesan.university.registration.infra.kafka;
+package com.montesan.university.registration.infra.kafka.produce;
 
 import com.montesan.university.registration.student.dto.StudentDto;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class StudentProducer {
 
-    @Value("${topic.name.producer}")
+    @Value("${topic.name.producer.register}")
     private String topic;
 
     private final KafkaTemplate<String, StudentDto> kafkaTemplate;

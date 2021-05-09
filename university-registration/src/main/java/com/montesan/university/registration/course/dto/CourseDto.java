@@ -1,8 +1,10 @@
 package com.montesan.university.registration.course.dto;
 
+import com.montesan.university.registration.course.entity.Course;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,4 +20,8 @@ public class CourseDto implements Serializable {
     private String id;
 
     private String name;
+
+    public Course toEntity(){
+        return new ModelMapper().map(this, Course.class);
+    }
 }

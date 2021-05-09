@@ -3,7 +3,7 @@ package com.montesan.university.registration.student.service;
 import com.montesan.university.registration.student.dto.StudentDto;
 import com.montesan.university.registration.student.entity.Student;
 import com.montesan.university.registration.student.repository.StudentRepository;
-import com.montesan.university.registration.infra.kafka.StudentProducer;
+import com.montesan.university.registration.infra.kafka.produce.StudentProducer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
