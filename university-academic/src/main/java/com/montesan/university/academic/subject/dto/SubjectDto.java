@@ -7,18 +7,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.UUID;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class SubjectDto implements Serializable {
 
-    @Id
-    private String id;
+    private UUID id;
     private String name;
     private Integer period;
     private CourseDto course;

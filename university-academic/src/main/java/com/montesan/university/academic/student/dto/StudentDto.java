@@ -8,13 +8,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.modelmapper.ModelMapper;
 
+import java.util.UUID;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class StudentDto {
 
-    private String id;
+    private UUID id;
     private String name;
     private CourseDto course;
 

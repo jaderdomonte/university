@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class SubjectProducer {
+public class SubjectServiceProducer {
 
     @Value("${topic.name.producer.subject}")
     private String topic;

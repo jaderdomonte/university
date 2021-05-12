@@ -14,7 +14,7 @@ public class SubjectController {
     private final SubjectService service;
 
     @PostMapping
-    public ResponseEntity<?> createCourse(@RequestBody SubjectDto subjectDto){
+    public ResponseEntity<?> createSubject(@RequestBody SubjectDto subjectDto){
         return ResponseEntity.ok(service.save(subjectDto));
     }
 
