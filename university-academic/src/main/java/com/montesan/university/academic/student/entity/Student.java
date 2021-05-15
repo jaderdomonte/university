@@ -1,5 +1,6 @@
 package com.montesan.university.academic.student.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.montesan.university.academic.course.entity.Course;
 import com.montesan.university.academic.student.dto.StudentDto;
 import lombok.AllArgsConstructor;
@@ -35,6 +36,7 @@ public class Student implements Persistable<UUID> {
     }
 
     @Override
+    @JsonIgnore
     public boolean isNew() {
         return this.id == null;
     }

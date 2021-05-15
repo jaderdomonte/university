@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db-registration:
+    image: postgres:13.1
+    container_name: db-registration
+    environment:
+      - POSTGRES_PASSWORD=registration
+      - POSTGRES_DB=registration
+    volumes:
+      - ../postgres/init:/docker-entrypoint-initdb.d
+    ports:
+      - 5433:5432
+
+networks:
+  default:
+    external:
+      name: university-network

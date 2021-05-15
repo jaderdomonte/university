@@ -1,5 +1,6 @@
 package com.montesan.university.academic.course.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.montesan.university.academic.course.dto.CourseDto;
 import com.montesan.university.academic.subject.dto.SubjectDto;
 import com.montesan.university.academic.subject.entity.Subject;
@@ -37,6 +38,7 @@ public class Course implements Persistable<UUID> {
     }
 
     @Override
+    @JsonIgnore
     public boolean isNew() {
         return this.id == id;
     }

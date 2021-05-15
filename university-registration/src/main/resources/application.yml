@@ -5,3 +5,4 @@ spring:
 server:
   servlet:
     context-path: /registration
+  port: 8081

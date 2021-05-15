@@ -1,8 +1,8 @@
-package com.montesan.university.academic.subject.entity;
+package com.montesan.university.registration.subject.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.montesan.university.academic.course.entity.Course;
-import com.montesan.university.academic.subject.dto.SubjectDto;
+import com.montesan.university.registration.course.entity.Course;
+import com.montesan.university.registration.subject.dto.SubjectDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +11,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Persistable;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
@@ -21,8 +20,6 @@ import java.util.UUID;
 public class Subject implements Persistable<UUID> {
 
     @Id
-    @GenericGenerator(name = "UUIDGenerator", strategy = "uuid2")
-    @GeneratedValue(generator = "UUIDGenerator")
     private UUID id;
 
     private String name;

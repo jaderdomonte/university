@@ -1,17 +1,19 @@
 CREATE TABLE course (
-    id VARCHAR(200) NOT NULL PRIMARY KEY,
+    id UUID NOT NULL PRIMARY KEY,
     name VARCHAR(200) NOT NULL
 );
 
---INSERT INTO course VALUES ((SELECT md5(random()::text || clock_timestamp()::text)::uuid), 'Portuguese Language');
---INSERT INTO course VALUES ((SELECT md5(random()::text || clock_timestamp()::text)::uuid), 'Mathematics');
---INSERT INTO course VALUES ((SELECT md5(random()::text || clock_timestamp()::text)::uuid), 'Systems Analysis');
---INSERT INTO course VALUES ((SELECT md5(random()::text || clock_timestamp()::text)::uuid), 'Nutrition');
---INSERT INTO course VALUES ((SELECT uuid_generate_v1()), 'Nutrition');
+CREATE TABLE subject (
+    id UUID NOT NULL PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    period INTEGER NOT NULL,
+    id_course UUID NOT NULL,
+    CONSTRAINT fk_course_subject FOREIGN KEY (id_course) REFERENCES course(id)
+);
 
 CREATE TABLE student (
-    id VARCHAR(200) NOT NULL PRIMARY KEY,
+    id UUID NOT NULL PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
-    id_course VARCHAR(200) NOT NULL,
-    CONSTRAINT fk_course FOREIGN KEY (id_course) REFERENCES course(id)
+    id_course UUID NOT NULL,
+    CONSTRAINT fk_course_student FOREIGN KEY (id_course) REFERENCES course(id)
 );

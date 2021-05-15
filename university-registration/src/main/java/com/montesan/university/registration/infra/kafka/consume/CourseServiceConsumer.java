@@ -14,7 +14,6 @@ public class CourseServiceConsumer {
 
     private final CourseRepository repository;
 
-//    @Payload
     @KafkaListener(topics = "${topic.name.consumer.course}", groupId = "group_id", containerFactory = "courseListener")
     public void consuming(CourseDto courseDto){
         log.info("Consuming: {}", courseDto);
