@@ -21,7 +21,7 @@ public class CourseDto implements Serializable {
     private String name;
     private List<SubjectDto> subjects;
 
-    public Course toEntity(){
+    public Course toEntity() {
         return new ModelMapper().map(this, Course.class);
     }
 }

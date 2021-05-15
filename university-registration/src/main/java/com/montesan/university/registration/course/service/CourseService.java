@@ -13,7 +13,7 @@ public class CourseService {
 
     private final CourseRepository repository;
 
-    public List<Course> getCourses(){
+    public List<Course> getCourses() {
         return repository.findAll();
     }
 }

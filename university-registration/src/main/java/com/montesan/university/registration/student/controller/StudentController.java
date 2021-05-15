@@ -20,14 +20,14 @@ public class StudentController {
     private final StudentService service;
 
     @PostMapping
-    public ResponseEntity<StudentDto> save(@RequestBody StudentDto studentDto){
-       StudentDto response = service.save(studentDto);
+    public ResponseEntity<StudentDto> save(@RequestBody StudentDto studentDto) {
+        StudentDto response = service.save(studentDto);
 
-       return ResponseEntity.ok(response);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping
-    public ResponseEntity<List<StudentDto>> getStudents(StudentDto studentDto){
+    public ResponseEntity<List<StudentDto>> getStudents(StudentDto studentDto) {
         List<StudentDto> response = service.getStudents(studentDto);
 
         return ResponseEntity.ok(response);

@@ -30,7 +30,7 @@ public class Course implements Persistable<UUID> {
             fetch = FetchType.EAGER, mappedBy = "course")
     private List<Subject> subjects;
 
-    public CourseDto toDto(){
+    public CourseDto toDto() {
         return new ModelMapper().map(this, CourseDto.class);
     }
 

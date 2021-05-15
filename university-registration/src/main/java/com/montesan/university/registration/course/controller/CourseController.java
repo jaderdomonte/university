@@ -15,7 +15,7 @@ public class CourseController {
     private final CourseService service;
 
     @GetMapping
-    public ResponseEntity<?> getCourses(){
+    public ResponseEntity<?> getCourses() {
         return ResponseEntity.ok(service.getCourses());
     }
 }

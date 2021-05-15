@@ -27,10 +27,10 @@ public class KafkaConfig {
         Map<String, Object> map = new HashMap<>();
 
         // put the host IP in the map
-        map.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
+        map.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
 
         // put the group ID of consumer in the map
-        map.put(ConsumerConfig.GROUP_ID_CONFIG,"group_id");
+        map.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
         map.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         map.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, JsonDeserializer.class);
         return map;
@@ -40,7 +40,7 @@ public class KafkaConfig {
     // between Spring application
     // and Kafka server
     @Bean
-    public ConsumerFactory<String, CourseDto> courseConsumer(){
+    public ConsumerFactory<String, CourseDto> courseConsumer() {
         Map<String, Object> map = getBaseConfiguration();
 
         // return message in JSON formate
@@ -49,7 +49,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, CourseDto> courseListener(){
+    public ConcurrentKafkaListenerContainerFactory<String, CourseDto> courseListener() {
         ConcurrentKafkaListenerContainerFactory<String, CourseDto>
                 factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(courseConsumer());
@@ -57,7 +57,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ConsumerFactory<String, SubjectDto> subjectConsumer(){
+    public ConsumerFactory<String, SubjectDto> subjectConsumer() {
         Map<String, Object> map = getBaseConfiguration();
 
         return new DefaultKafkaConsumerFactory<>(map, new StringDeserializer(),
@@ -65,7 +65,7 @@ public class KafkaConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, SubjectDto> subjectListener(){
+    public ConcurrentKafkaListenerContainerFactory<String, SubjectDto> subjectListener() {
         ConcurrentKafkaListenerContainerFactory<String, SubjectDto>
                 factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(subjectConsumer());

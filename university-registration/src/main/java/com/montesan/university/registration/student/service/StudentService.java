@@ -18,7 +18,7 @@ public class StudentService {
     private final StudentProducer studentProducer;
     private final StudentRepository repository;
 
-    public StudentDto save(StudentDto studentDto){
+    public StudentDto save(StudentDto studentDto) {
         studentDto.setId(UUID.randomUUID().toString());
 
         Student studentSave = repository.save(studentDto.toEntity());

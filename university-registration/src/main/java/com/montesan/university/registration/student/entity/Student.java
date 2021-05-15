@@ -31,7 +31,7 @@ public class Student implements Persistable<UUID> {
     @JoinColumn(name = "id_course")
     private Course course;
 
-    public StudentDto toDto(){
+    public StudentDto toDto() {
         return new ModelMapper().map(this, StudentDto.class);
     }
 

@@ -20,7 +20,7 @@ public class SubjectDto implements Serializable {
     private Integer period;
     private CourseDto course;
 
-    public Subject toEntity(){
+    public Subject toEntity() {
         return new ModelMapper().map(this, Subject.class);
     }
 }

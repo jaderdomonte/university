@@ -14,12 +14,12 @@ public class SubjectService {
 
     private final SubjectRepository repository;
 
-    public SubjectDto save(SubjectDto subjectDto){
+    public SubjectDto save(SubjectDto subjectDto) {
         Subject subjectSaved = repository.save(subjectDto.toEntity());
         return subjectSaved.toDto();
     }
 
-    public List<Subject> getSubjects(){
+    public List<Subject> getSubjects() {
         return repository.findAll();
     }
 }
