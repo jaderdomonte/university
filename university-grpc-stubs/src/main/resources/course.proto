@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option java_package = "com.br.montesan.grpc";
+
+service course {
+  rpc createCourse(CourseCreateRequest) returns (CourseCreateResponse);
+  rpc cancelCourse(CourseCancelRequest) returns (CourseCancelResponse);
+}
+
+message CourseCreateRequest {
+  string id = 1;
+  string name = 2;
+  repeated Subject subjects = 3;
+}
+
+message CourseCreateResponse {
+  string id = 1;
+  string status = 2;
+  int32 responseCode = 3;
+}
+
+message CourseCancelRequest {
+  string id = 1;
+}
+
+message CourseCancelResponse {
+  string id = 1;
+  string status = 2;
+  int32 responseCode = 3;
+}
+
+message Subject {
+  string id = 1;
+  string name = 2;
+  int32 period = 3;
+}
