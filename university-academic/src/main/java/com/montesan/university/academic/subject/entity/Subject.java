@@ -34,7 +34,7 @@ public class Subject implements Persistable<UUID> {
     @JsonIgnore
     private Course course;
 
-    public SubjectDto toDto(){
+    public SubjectDto toDto() {
         return new ModelMapper().map(this, SubjectDto.class);
     }
 

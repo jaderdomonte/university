@@ -16,7 +16,7 @@ public class SubjectService {
     private final SubjectRepository repository;
     private final SubjectServiceProducer producer;
 
-    public SubjectDto save(SubjectDto subjectDto){
+    public SubjectDto save(SubjectDto subjectDto) {
         Subject subjectSaved = repository.save(subjectDto.toEntity());
 
         producer.send(subjectSaved.toDto());
@@ -24,7 +24,7 @@ public class SubjectService {
         return subjectSaved.toDto();
     }
 
-    public List<Subject> getSubjects(){
+    public List<Subject> getSubjects() {
         return repository.findAll();
     }
 }

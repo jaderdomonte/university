@@ -19,14 +19,14 @@ public class CourseService {
     private final CourseRepository repository;
     private final SubjectRepository subjectRepository;
 
-    public CourseDto save(CourseDto courseDto){
+    public CourseDto save(CourseDto courseDto) {
         Course courseSaved = repository.save(courseDto.toEntity());
         courseServiceProducer.send(courseSaved.toDto());
 
         return courseSaved.toDto();
     }
 
-    public List<Course> getCourses(){
+    public List<Course> getCourses() {
         return repository.findAll();
     }
 }

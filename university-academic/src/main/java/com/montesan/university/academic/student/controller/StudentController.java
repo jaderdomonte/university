@@ -20,7 +20,7 @@ public class StudentController {
     private final StudentService service;
 
     @GetMapping
-    public ResponseEntity<List<StudentDto>> getStudents(StudentDto studentDto){
+    public ResponseEntity<List<StudentDto>> getStudents(StudentDto studentDto) {
         List<StudentDto> response = service.getStudents(studentDto);
 
         return ResponseEntity.ok(response);

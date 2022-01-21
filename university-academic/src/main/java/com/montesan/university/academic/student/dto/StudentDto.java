@@ -20,7 +20,7 @@ public class StudentDto {
     private String name;
     private CourseDto course;
 
-    public Student toEntity(){
+    public Student toEntity() {
         return new ModelMapper().map(this, Student.class);
     }
 }

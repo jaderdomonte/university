@@ -14,12 +14,12 @@ public class SubjectController {
     private final SubjectService service;
 
     @PostMapping
-    public ResponseEntity<?> createSubject(@RequestBody SubjectDto subjectDto){
+    public ResponseEntity<?> createSubject(@RequestBody SubjectDto subjectDto) {
         return ResponseEntity.ok(service.save(subjectDto));
     }
 
     @GetMapping
-    public ResponseEntity<?> getSubjects(){
+    public ResponseEntity<?> getSubjects() {
         return ResponseEntity.ok(service.getSubjects());
     }
 }

@@ -14,12 +14,12 @@ public class CourseController {
     private final CourseService service;
 
     @PostMapping
-    public ResponseEntity<?> createCourse(@RequestBody CourseDto courseDto){
+    public ResponseEntity<?> createCourse(@RequestBody CourseDto courseDto) {
         return ResponseEntity.ok(service.save(courseDto));
     }
 
     @GetMapping
-    public ResponseEntity<?> getCourses(){
+    public ResponseEntity<?> getCourses() {
         return ResponseEntity.ok(service.getCourses());
     }
 }

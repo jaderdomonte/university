@@ -30,10 +30,10 @@ public class Course implements Persistable<UUID> {
     private String name;
 
     @OneToMany(cascade = CascadeType.REMOVE,
-                    fetch = FetchType.EAGER, mappedBy = "course")
+            fetch = FetchType.EAGER, mappedBy = "course")
     private List<Subject> subjects;
 
-    public CourseDto toDto(){
+    public CourseDto toDto() {
         return new ModelMapper().map(this, CourseDto.class);
     }
 
